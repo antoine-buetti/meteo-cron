@@ -11,7 +11,7 @@ on:
     branches: [ "main" ]
 
   schedule:
-    - cron: "30 18 * * *" # UTC time -> every day 2130 
+    - cron: "30 6 * * *" # UTC time
   
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -40,7 +40,11 @@ jobs:
           date >> tmp.txt
           cowsay < tmp.txt > update_info.txt
           rm tmp.txt
-                    
+
+          # check website
+          wget https://www.spalv.ch/it/animali/smarriti
+          egrep -i "muralto|minusio|tenero|locarno" smarriti* --color | sed 's/ /\n/g' | grep href | grep -v "><img"  > animali_persi.txt
+          
           git config --global user.name "antoine-buetti"
           git config --global user.email "antoine.buetti@gmail.com"
 
