@@ -40,7 +40,11 @@ jobs:
           echo "Last update:" > update_info.txt
           date >> update_info.txt
 
-
+          git config --global user.name "antoine-buetti"
+          git config --global user.email "antoine.buetti@gmail.com"
+          git add .
+          git commit -m "Update info"
+          git commit -F update_info.txt
           git push
           github_token: ${{ secrets.GH_TOKEN }}
           
