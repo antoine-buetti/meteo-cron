@@ -37,7 +37,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo "Last update2:" > update_info.txt
+          echo "Last update3:" > update_info.txt
           date >> update_info.txt
           
           git push
