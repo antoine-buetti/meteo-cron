@@ -39,6 +39,7 @@ jobs:
           echo "Last update:" > tmp.txt
           date >> tmp.txt
           cowsay < tmp.txt > update_info.txt
+          rm tmp.txt
                     
           git config --global user.name "antoine-buetti"
           git config --global user.email "antoine.buetti@gmail.com"
