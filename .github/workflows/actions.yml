@@ -44,7 +44,7 @@ jobs:
           rm tmp.txt
 
           # Put together query term for MeteoSuisse web resource
-          url=$(paste url CAP <(echo "00") | xargs | sed 's/ //g')
+          url=$(paste url_base_meteo_suisse cap_location <(echo "00") | xargs | sed 's/ //g')
 
           # Extract all info from MeteoSuisse for that particular location specified in "cap_location"
           wget $url -O info_meteo_all.txt
