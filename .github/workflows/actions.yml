@@ -50,14 +50,14 @@ jobs:
           wget $url -O info_meteo_all.txt
 
           # Extract some info of particular interest and clean up
-          cat info_meteo_all.txt \|  
-          sed 's/}/}\n/g' \| 
-          sed 's/],/],\n/g' \| 
-          sed 's/{//g' \| 
-          sed 's/}//g' \| 
-          sed 's/\[//g' \| 
-          sed 's/\]//g' \| 
-          egrep "currentWeather|warningsOverview|windSpeed3h|precipitationProbability3h" \
+          cat info_meteo_all.txt \
+          | sed 's/}/}\n/g' \
+          | sed 's/],/],\n/g' \
+          | sed 's/{//g' \
+          | sed 's/}//g' \
+          | sed 's/\[//g' \ 
+          | sed 's/\]//g' \ 
+          | egrep "currentWeather|warningsOverview|windSpeed3h|precipitationProbability3h" \
           > info_meteo.txt
 
 
