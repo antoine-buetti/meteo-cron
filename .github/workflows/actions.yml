@@ -40,7 +40,7 @@ jobs:
           # Log last modification
           echo "Last update:" > tmp.txt
           date >> tmp.txt
-          cowsay < tmp.txt > update_info.txt
+          cowsay < tmp.txt > last_update_info.txt
           rm tmp.txt
 
           # Put together query term for MeteoSuisse web resource
@@ -60,6 +60,10 @@ jobs:
           | egrep "currentWeather|warningsOverview|windSpeed3h|precipitationProbability3h" \
           > info_meteo.txt
           
+          # Cleanup
+          rm info_meteo_all.txt
+
+
           git config --global user.name "antoine-buetti"
           git config --global user.email "antoine.buetti@gmail.com"
           git add .
